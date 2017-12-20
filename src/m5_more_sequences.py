@@ -7,8 +7,8 @@ for ITERATING through SEQUENCES, including:
   -- The FIND pattern (via LINEAR SEARCH)
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Geoffrey Tomlinson.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -74,8 +74,15 @@ def sum_radii(circles):
     Type hints:
       :type circles:  list[rg.Circle]    or tuple(rg.Circle)
     """
+
+    count = 0
+    for k in range(len(circles)):
+        circle = circles[k]
+        radius = circle.radius
+        count += radius
+    return count
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #     The testing code is already written for you (above).
     #
     # Note: No fair using "slices" on ANY of these problems,
@@ -148,8 +155,15 @@ def count_last_n_odds(integers, n):
       :type integers: list[int]   or tuple[int]
       :type n:        int
     """
+
+    count = 0
+    for k in range(len(integers), len(integers) - n, -1):
+        if integers[k - 1] % 2 != 0:
+            count += 1
+    return count
+
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #     The testing code is already written for you (above).
     # ------------------------------------------------------------------
 
@@ -222,10 +236,20 @@ def index_of_first_negative(numbers):
     Type hints:
       :type numbers: list[float]   or tuple[float]
     """
-    # ------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
-    #     The testing code is already written for you (above).
-    # ------------------------------------------------------------------
+
+    count = 0
+    for k in range(len(numbers)):
+        if numbers[k] < 0:
+            return k
+        else:
+            count += 1
+        if count == len(numbers):
+            return -1
+
+            # ------------------------------------------------------------------
+            # DONE: 4. Implement and test this function.
+            #     The testing code is already written for you (above).
+            # ------------------------------------------------------------------
 
 
 def run_test_contains_an_a():
@@ -279,6 +303,17 @@ def contains_an_a(s):
     Type hints:
       :type s: str
     """
+
+    value = False
+    for k in range(len(s)):
+        if s[k] == 'a':
+            value = True
+        elif value == True:
+            break
+        else:
+            value = False
+    return value
+
     # ------------------------------------------------------------------
     # TODO: 5. Implement and test this function.
     #     The testing code is already written for you (above).
